@@ -1,0 +1,184 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Selected IMO Problem}
+
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item For positive real numbers $a, b, c$ with $a + b + c = abc$, show that
+    \[
+        \frac{1}{\sqrt{1+a^2}} + \frac{1}{\sqrt{1+b^2}} + \frac{1}{\sqrt{1+c^2}} \le \frac{3}{2},
+    \]
+    and determine when equality occurs.
+\end{enumerate}
+
+\section*{English-Language Solution}
+\textbf{Proof by:} Trigonometric Substitution \& Jensen's Inequality
+
+\begin{enumerate}
+    \item Test $a, b, c$ values when they all equal one another: $(a = b = c \implies 3a = a^3) \implies a = \sqrt{3}$.
+    \begin{enumerate}
+        \item Plug in $a = b = c = \sqrt{3}$ to get $3\left(\frac{1}{\sqrt{4}}\right) = \frac{3}{2}$.
+        \begin{enumerate}
+            \item This shows that $\frac{3}{2}$ is possible when all the variables equal $\sqrt{3}$.
+        \end{enumerate}
+    \end{enumerate}
+
+    \item Using the tangent identity for a triangle (conditional trigonometric identity):
+    \begin{enumerate}
+        \item $\tan(A) + \tan(B) + \tan(C) = \tan(A)\tan(B)\tan(C)$
+        \begin{enumerate}
+            \item Here, the angles must add up to $180^\circ$ ($\pi$ radians).
+            \item Which can be proven by the Tangent Sum Identity: $\tan(A+B) = \frac{\tan(A) + \tan(B)}{1 - \tan(A)\tan(B)} = -\tan(C)$
+            \item Using this identity and the nature of the tan function's period, and odd symmetry, we proved that the 3 angles must be equal to 180 to be true for the Tangent Sum Identity. 
+            \item \textbf{Formal Proof Segment:}
+            \begin{itemize}
+                \item \textbf{Apply Odd Symmetry:} Since the tangent function is an odd function (meaning $-\tan(x) = \tan(-x)$ for all $x$ in its domain), we can rewrite the right-hand side of $\tan(A + B) = -\tan(C)$ as:
+                \[
+                    \tan(A + B) = \tan(-C)
+                \]
+                \item \textbf{Apply Periodicity:} The tangent function is strictly periodic with fundamental period $\pi$ (or $180^\circ$). Therefore, $\tan(\alpha) = \tan(\beta)$ if and only if $\alpha - \beta = k\pi$ for some integer $k \in \mathbb{Z}$. Applying this to $\alpha = A + B$ and $\beta = -C$ yields:
+                \[
+                    (A + B) - (-C) = k\pi \implies A + B + C = k\pi, \quad \text{for some } k \in \mathbb{Z}
+                \]
+                \item \textbf{Bound the Sum to Isolate $k$:} Since $A, B, C \in \left(0, \frac{\pi}{2}\right)$, summing these strict inequalities gives:
+                \[
+                    0 < A + B + C < \frac{3\pi}{2}
+                \]
+                Substituting $A + B + C = k\pi$ into the inequality:
+                \[
+                    0 < k\pi < \frac{3\pi}{2}
+                \]
+                Dividing through by $\pi$ gives:
+                \[
+                    0 < k < 1.5
+                \]
+                \item \textbf{Conclude:} Because $k$ must be an integer ($k \in \mathbb{Z}$), the unique solution is $k = 1$. Thus:
+                \[
+                    A + B + C = \pi \quad (\text{or } 180^\circ)
+                \]
+            \end{itemize}
+        \end{enumerate}
+    \end{enumerate}
+
+    \item Set $a = \tan(A)$, $b = \tan(B)$, $c = \tan(C)$.
+    \begin{enumerate}
+        \item Simplify using a right triangle to get $a = \text{opp.}$ and $1 = \text{adj.}$
+        \begin{enumerate}
+            \item You can rewrite this to show $\cos(A) = \frac{\text{adj.}}{\text{hyp.}} = \frac{1}{\sqrt{1 + a^2}}$.
+        \end{enumerate}
+        \item Apply the same substitution to the rest of the expression, rewriting the goal as $\cos(A) + \cos(B) + \cos(C) \le \frac{3}{2}$.
+        \begin{enumerate}
+            \item Because $\cos(x)$ is concave on $\left(0, \frac{\pi}{2}\right)$ (or $0^\circ$ to $90^\circ$), by Jensen's Inequality:
+            \item $\frac{\cos(A) + \cos(B) + \cos(C)}{3} \le \cos\left(\frac{A + B + C}{3}\right) = \cos\left(\frac{\pi}{3}\right) = \frac{1}{2}$ if and only if $A = B = C = \frac{\pi}{3}$ ($60^\circ$).
+            \begin{enumerate}
+                \item This indicates that equality occurs only when all $3$ angles equal $60^\circ$ or $\frac{\pi}{3}$ radians (meaning $a = b = c = \sqrt{3}$).
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+
+    \item Compare Jensen's Inequality to the original problem:
+    \begin{enumerate}
+        \item Multiplying the $3$ back across the inequality sign yields $\cos(A) + \cos(B) + \cos(C) \le \frac{3}{2}$, which substitutes back into the original inequality:
+        \[
+            \frac{1}{\sqrt{1+a^2}} + \frac{1}{\sqrt{1+b^2}} + \frac{1}{\sqrt{1+c^2}} \le \frac{3}{2}
+        \]
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+
+\section*{Selected IMO Problem}
+
+\begin{enumerate}
+    \setcounter{enumi}{3}
+    \item For positive real numbers $a, b, c$ with $a + b + c = abc$, show that
+    \[
+        \frac{1}{\sqrt{1+a^2}} + \frac{1}{\sqrt{1+b^2}} + \frac{1}{\sqrt{1+c^2}} \le \frac{3}{2},
+    \]
+    and determine when equality occurs.
+\end{enumerate}
+
+\section*{English-Language Solution}
+\textbf{Proof by:} Trigonometric Substitution \& Jensen's Inequality
+
+\begin{enumerate}
+    \item Test $a, b, c$ values when they all equal one another: $(a = b = c \implies 3a = a^3) \implies a = \sqrt{3}$.
+    \begin{enumerate}
+        \item Plug in $a = b = c = \sqrt{3}$ to get $3\left(\frac{1}{\sqrt{4}}\right) = \frac{3}{2}$.
+        \begin{enumerate}
+            \item This shows that $\frac{3}{2}$ is possible when all the variables equal $\sqrt{3}$.
+        \end{enumerate}
+    \end{enumerate}
+
+    \item Using the tangent identity for a triangle (conditional trigonometric identity):
+    \begin{enumerate}
+        \item $\tan(A) + \tan(B) + \tan(C) = \tan(A)\tan(B)\tan(C)$
+        \begin{enumerate}
+            \item Here, the angles must add up to $180^\circ$ ($\pi$ radians).
+            \item Tangent Sum Identity: $\tan(A+B) = \frac{\tan(A) + \tan(B)}{1 - \tan(A)\tan(B)} = -\tan(C)$
+            \item \textbf{Formal Proof Segment:}
+            \begin{itemize}
+                \item \textbf{Apply Odd Symmetry:} Since the tangent function is an odd function (meaning $-\tan(x) = \tan(-x)$ for all $x$ in its domain), we can rewrite the right-hand side of $\tan(A + B) = -\tan(C)$ as:
+                \[
+                    \tan(A + B) = \tan(-C)
+                \]
+                \item \textbf{Apply Periodicity:} The tangent function is strictly periodic with fundamental period $\pi$ (or $180^\circ$). Therefore, $\tan(\alpha) = \tan(\beta)$ if and only if $\alpha - \beta = k\pi$ for some integer $k \in \mathbb{Z}$. Applying this to $\alpha = A + B$ and $\beta = -C$ yields:
+                \[
+                    (A + B) - (-C) = k\pi \implies A + B + C = k\pi, \quad \text{for some } k \in \mathbb{Z}
+                \]
+                \item \textbf{Bound the Sum to Isolate $k$:} Since $A, B, C \in \left(0, \frac{\pi}{2}\right)$, summing these strict inequalities gives:
+                \[
+                    0 < A + B + C < \frac{3\pi}{2}
+                \]
+                Substituting $A + B + C = k\pi$ into the inequality:
+                \[
+                    0 < k\pi < \frac{3\pi}{2}
+                \]
+                Dividing through by $\pi$ gives:
+                \[
+                    0 < k < 1.5
+                \]
+                \item \textbf{Conclude:} Because $k$ must be an integer ($k \in \mathbb{Z}$), the unique solution is $k = 1$. Thus:
+                \[
+                    A + B + C = \pi \quad (\text{or } 180^\circ)
+                \]
+            \end{itemize}
+        \end{enumerate}
+    \end{enumerate}
+
+    \item Set $a = \tan(A)$, $b = \tan(B)$, $c = \tan(C)$.
+    \begin{enumerate}
+        \item Simplify using a right triangle to get $a = \text{opp.}$ and $1 = \text{adj.}$
+        \begin{enumerate}
+            \item You can rewrite this to show $\cos(A) = \frac{\text{adj.}}{\text{hyp.}} = \frac{1}{\sqrt{1 + a^2}}$.
+        \end{enumerate}
+        \item Apply the same substitution to the rest of the expression, rewriting the goal as $\cos(A) + \cos(B) + \cos(C) \le abc $.
+        \begin{enumerate}
+            \item Because $\cos(x)$ is concave on $\left(0, \frac{\pi}{2}\right)$ (or $0^\circ$ to $90^\circ$), by Jensen's Inequality:
+            \item $\frac{\cos(A) + \cos(B) + \cos(C)}{3} \le \cos\left(\frac{A + B + C}{3}\right) = \cos\left(\frac{\pi}{3}\right) = \frac{1}{2}$ if and only if $A = B = C = \frac{\pi}{3}$ ($60^\circ$).
+            \item The first item represents the average cos(x) values of A, B, and C, which has to be less than the cos(x) of the average of the x values. This can be rewritten as cos(pi/3) since the angles must add to pi radians. 
+            \item This indicates that equality occurs only when all $3$ angles equal $60^\circ$ or $\frac{\pi}{3}$ radians (meaning $a = b = c = \sqrt{3}$).
+            \end{enumerate}
+        \end{enumerate}
+    \end{enumerate}
+
+    \item Compare Jensen's Inequality to the original problem:
+    \begin{enumerate}
+        \item Multiplying the $3$ back across the inequality sign yields $\cos(A) + \cos(B) + \cos(C) \le \frac{3}{2}$, which substitutes back into the original inequality:
+        \[
+            \frac{1}{\sqrt{1+a^2}} + \frac{1}{\sqrt{1+b^2}} + \frac{1}{\sqrt{1+c^2}} \le \frac{3}{2}
+        \]
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
